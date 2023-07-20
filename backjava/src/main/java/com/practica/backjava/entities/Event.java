@@ -1,8 +1,7 @@
 package com.practica.backjava.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import org.springframework.cglib.core.Local;
-
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -29,20 +28,50 @@ public class Event {
     @Column(name = "EndDate")
     private LocalDateTime endDate;
 
+    @ManyToOne
+    @JoinColumn(name = "VenueID")
+    @JsonIgnore
+    private Venue venue;
+
+    @ManyToOne
+    @JoinColumn(name = "EventTypeID")
+    @JsonIgnore
+    private EventType eventType;
+
     public Event() {
     }
 
-    public Event(int eventID, Set<TicketCategory> ticketCategorySet, String eventDescription, String eventName, LocalDateTime startDate, LocalDateTime endDate) {
-        this.eventID = eventID;
-        this.ticketCategorySet = ticketCategorySet;
-        this.eventDescription = eventDescription;
-        this.eventName = eventName;
-        this.startDate = startDate;
-        this.endDate = endDate;
+    @Override
+    public String toString() {
+        return "Event{" +
+                "eventID=" + eventID +
+                ", ticketCategorySet=" + ticketCategorySet +
+                ", eventDescription='" + eventDescription + '\'' +
+                ", eventName='" + eventName + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", venue=" + venue +
+                '}';
     }
 
     public int getEventID() {
         return eventID;
+    }
+
+    public Venue getVenue() {
+        return venue;
+    }
+
+    public void setVenue(Venue venue) {
+        this.venue = venue;
+    }
+
+    public EventType getEventType() {
+        return eventType;
+    }
+
+    public void setEventType(EventType eventType) {
+        this.eventType = eventType;
     }
 
     public void setEventID(int eventID) {
@@ -89,15 +118,4 @@ public class Event {
         this.endDate = endDate;
     }
 
-    @Override
-    public String toString() {
-        return "Event{" +
-                "eventID=" + eventID +
-                ", ticketCategorySet=" + ticketCategorySet +
-                ", eventDescription='" + eventDescription + '\'' +
-                ", eventName='" + eventName + '\'' +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
-                '}';
-    }
 }

@@ -5,6 +5,7 @@ import com.practica.backjava.repositories.EventRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EventServiceImpl implements EventService{
@@ -18,4 +19,11 @@ public class EventServiceImpl implements EventService{
     public List<Event> getEvents() {
         return (List<Event>) eventRepository.findAll();
     }
+
+    @Override
+    public Optional<Event> getEventById(int id) {
+        return eventRepository.findById(id);
+    }
+
+
 }

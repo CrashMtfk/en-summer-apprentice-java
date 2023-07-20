@@ -2,6 +2,8 @@ package com.practica.backjava.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "Customer", schema = "dbo")
 public class Customer {
@@ -15,6 +17,17 @@ public class Customer {
     private String customerName;
     @Column(name = "Email")
     private String customerEmail;
+
+    @OneToMany(mappedBy = "orderCustomerID")
+    private List<Order> orderList;
+
+    public List<Order> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
+    }
 
     public Customer(){}
 

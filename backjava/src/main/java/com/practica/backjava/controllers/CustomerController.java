@@ -2,6 +2,7 @@ package com.practica.backjava.controllers;
 
 import com.practica.backjava.entities.Customer;
 import com.practica.backjava.services.CustomerServiceImpl;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,4 +20,5 @@ public class CustomerController {
     public List<Customer> getCustomers(){
         return customerServiceImpl.getCustomers();
     }
+
 }

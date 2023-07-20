@@ -1,5 +1,6 @@
 package com.practica.backjava.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -17,10 +18,12 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "customerID", referencedColumnName = "CustomerID")
+    @JsonIgnore
     private Customer orderCustomerID;
 
     @ManyToOne
     @JoinColumn(name = "ticketCategoryID", referencedColumnName = "TicketCategoryID")
+    @JsonIgnore
     private TicketCategory orderTicketCategoryID;
 
     @Column(name = "OrderedAt")

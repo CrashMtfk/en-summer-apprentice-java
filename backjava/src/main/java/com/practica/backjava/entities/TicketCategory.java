@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -21,7 +22,7 @@ public class TicketCategory {
     private BigDecimal ticketPrice;
 
     @OneToMany(mappedBy = "orderTicketCategoryID")
-    private Set<Order> orderSet;
+    private List<Order> orderSet;
 
     @ManyToOne
     @JoinColumn(name = "EventID")
@@ -29,14 +30,6 @@ public class TicketCategory {
     private Event event;
 
     public TicketCategory() {
-    }
-
-    public TicketCategory(int ticketCategoryID, String ticketDescription, BigDecimal ticketPrice, Set<Order> orderSet, Event event) {
-        this.ticketCategoryID = ticketCategoryID;
-        this.ticketDescription = ticketDescription;
-        this.ticketPrice = ticketPrice;
-        this.orderSet = orderSet;
-        this.event = event;
     }
 
     public int getTicketCategoryID() {
@@ -71,11 +64,11 @@ public class TicketCategory {
         this.event = event;
     }
 
-    public Set<Order> getOrderSet() {
+    public List<Order> getOrderSet() {
         return orderSet;
     }
 
-    public void setOrderSet(Set<Order> orderSet) {
+    public void setOrderSet(List<Order> orderSet) {
         this.orderSet = orderSet;
     }
 
@@ -85,7 +78,6 @@ public class TicketCategory {
                 "ticketCategoryID=" + ticketCategoryID +
                 ", ticketDescription='" + ticketDescription + '\'' +
                 ", ticketPrice=" + ticketPrice +
-                ", orderSet=" + orderSet +
                 ", event=" + event +
                 '}';
     }
