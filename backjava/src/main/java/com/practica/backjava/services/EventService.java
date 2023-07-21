@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface EventService {
     public List<Event> getEvents();
     public Optional<Event> getEventById(int id);
+    public List<Event> getEventByValueIdAndEventType(Integer venueID, String eventType);
 }

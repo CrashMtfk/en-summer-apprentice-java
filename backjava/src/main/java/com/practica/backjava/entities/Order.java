@@ -1,5 +1,6 @@
 package com.practica.backjava.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -18,7 +19,7 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "customerID", referencedColumnName = "CustomerID")
-    @JsonIgnore
+    @JsonBackReference
     private Customer orderCustomerID;
 
     @ManyToOne

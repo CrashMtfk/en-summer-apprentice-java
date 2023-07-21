@@ -25,5 +25,10 @@ public class EventServiceImpl implements EventService{
         return eventRepository.findById(id);
     }
 
+    @Override
+    public List<Event> getEventByValueIdAndEventType(Integer venueID, String eventType) {
+        return eventRepository.findEventsByVenueVenueIDAndEventTypeEventTypeName(venueID, eventType);
+    }
+
 
 }

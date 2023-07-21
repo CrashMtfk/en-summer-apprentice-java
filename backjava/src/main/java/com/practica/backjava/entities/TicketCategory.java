@@ -1,5 +1,6 @@
 package com.practica.backjava.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -21,12 +22,9 @@ public class TicketCategory {
     @Column(name = "Price")
     private BigDecimal ticketPrice;
 
-    @OneToMany(mappedBy = "orderTicketCategoryID")
-    private List<Order> orderSet;
-
     @ManyToOne
     @JoinColumn(name = "EventID")
-    @JsonIgnore
+    @JsonBackReference
     private Event event;
 
     public TicketCategory() {
@@ -62,14 +60,6 @@ public class TicketCategory {
 
     public void setEvent(Event event) {
         this.event = event;
-    }
-
-    public List<Order> getOrderSet() {
-        return orderSet;
-    }
-
-    public void setOrderSet(List<Order> orderSet) {
-        this.orderSet = orderSet;
     }
 
     @Override

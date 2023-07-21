@@ -1,6 +1,8 @@
 package com.practica.backjava.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -11,9 +13,10 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "EventID")
-    private int eventID;
+    private Integer eventID;
 
     @OneToMany(mappedBy = "event")
+    @JsonManagedReference
     private Set<TicketCategory> ticketCategorySet;
 
     @Column(name = "EventDescription")
@@ -30,12 +33,10 @@ public class Event {
 
     @ManyToOne
     @JoinColumn(name = "VenueID")
-    @JsonIgnore
     private Venue venue;
 
     @ManyToOne
     @JoinColumn(name = "EventTypeID")
-    @JsonIgnore
     private EventType eventType;
 
     public Event() {

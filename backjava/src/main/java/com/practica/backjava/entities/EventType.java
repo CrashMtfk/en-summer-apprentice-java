@@ -6,21 +6,16 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Getter
-@Setter
 @Entity
 @Table(name = "EventType")
 public class EventType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "EventTypeID")
-    private int eventyTypeID;
+    private Integer eventyTypeID;
 
     @Column(name = "EventTypeName")
     private String eventTypeName;
-
-    @OneToMany(mappedBy = "eventType")
-    private List<Event> eventList;
 
     public EventType() {
     }
@@ -30,7 +25,22 @@ public class EventType {
         return "EventType{" +
                 "eventyTypeID=" + eventyTypeID +
                 ", eventTypeName='" + eventTypeName + '\'' +
-                ", eventList=" + eventList +
                 '}';
+    }
+
+    public Integer getEventyTypeID() {
+        return eventyTypeID;
+    }
+
+    public void setEventyTypeID(Integer eventyTypeID) {
+        this.eventyTypeID = eventyTypeID;
+    }
+
+    public String getEventTypeName() {
+        return eventTypeName;
+    }
+
+    public void setEventTypeName(String eventTypeName) {
+        this.eventTypeName = eventTypeName;
     }
 }
