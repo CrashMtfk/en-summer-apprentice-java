@@ -31,12 +31,6 @@ public class Customer {
 
     public Customer(){}
 
-    public Customer(int customerID, String customerName, String customerEmail) {
-        this.customerID = customerID;
-        this.customerName = customerName;
-        this.customerEmail = customerEmail;
-    }
-
     public int getCustomerID() {
         return customerID;
     }
