@@ -18,4 +18,8 @@ public class TicketCategoryServiceImpl implements TicketCategoryService{
     public List<TicketCategory> getAllTicketCategory() {
         return (List<TicketCategory>) ticketCategoryRepository.findAll();
     }
+
+    public TicketCategory getTicketById(Integer ticketCategoryID){
+        return ticketCategoryRepository.findByTicketCategoryID(ticketCategoryID);
+    }
 }
