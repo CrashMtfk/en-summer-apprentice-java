@@ -27,6 +27,13 @@ public class Venue {
     public Venue() {
     }
 
+    public Venue(Integer venueID, String venueLocation, String venueType, int venueCapacity) {
+        this.venueID = venueID;
+        this.venueLocation = venueLocation;
+        this.venueType = venueType;
+        this.venueCapacity = venueCapacity;
+    }
+
     public int getVenueID() {
         return venueID;
     }

@@ -42,6 +42,17 @@ public class Event {
     public Event() {
     }
 
+    public Event(Integer eventID, Set<TicketCategory> ticketCategorySet, String eventDescription, String eventName, LocalDateTime startDate, LocalDateTime endDate, Venue venue, EventType eventType) {
+        this.eventID = eventID;
+        this.ticketCategorySet = ticketCategorySet;
+        this.eventDescription = eventDescription;
+        this.eventName = eventName;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.venue = venue;
+        this.eventType = eventType;
+    }
+
     @Override
     public String toString() {
         return "Event{" +
