@@ -27,6 +27,6 @@ public class OrderServiceImpl implements OrderService{
 
     @Override
     public List<Order> getCustomerOrderById(Integer id) {
-        return orderRepository.findByOrderCustomerID(id);
+        return orderRepository.findOrderByOrderCustomerID_CustomerID(id);
     }
 }
