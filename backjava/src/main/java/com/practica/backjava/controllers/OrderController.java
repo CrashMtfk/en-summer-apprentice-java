@@ -42,7 +42,7 @@ public class OrderController {
     public OrderDTO createNewOrder(@RequestBody OrderDTO orderRequest, @PathVariable Integer customerID){
         TicketCategory ticketCategory = ticketCategoryService.getTicketById(orderRequest.getOrderTicketCategoryID());
         BigDecimal numberOfTicketsRequested = BigDecimal.valueOf(orderRequest.getNumberOfTickets());
-        BigDecimal totalPrice = orderRequest.getTotalPrice().multiply(numberOfTicketsRequested);
+        BigDecimal totalPrice = ticketCategory.getTicketPrice().multiply(numberOfTicketsRequested);
         LocalDateTime orderedAt = LocalDateTime.now();
 
         OrderDTO orderToSave = new OrderDTO();
@@ -50,6 +50,7 @@ public class OrderController {
         orderToSave.setOrderTicketCategoryID(orderRequest.getOrderTicketCategoryID());
         orderToSave.setOrderedAt(orderedAt);
         orderToSave.setTotalPrice(totalPrice);
+        orderToSave.setNumberOfTickets(orderRequest.getNumberOfTickets());
         orderService.saveNewOrder(orderToSave, customerID);
 
         return orderToSave;
