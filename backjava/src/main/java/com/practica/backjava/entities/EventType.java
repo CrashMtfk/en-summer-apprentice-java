@@ -2,10 +2,14 @@ package com.practica.backjava.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
-import java.util.List;
-
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 @Entity
 @Table(name = "EventType")
 public class EventType {
@@ -17,30 +21,5 @@ public class EventType {
     @Column(name = "EventTypeName")
     private String eventTypeName;
 
-    public EventType() {
-    }
 
-    @Override
-    public String toString() {
-        return "EventType{" +
-                "eventyTypeID=" + eventyTypeID +
-                ", eventTypeName='" + eventTypeName + '\'' +
-                '}';
-    }
-
-    public Integer getEventyTypeID() {
-        return eventyTypeID;
-    }
-
-    public void setEventyTypeID(Integer eventyTypeID) {
-        this.eventyTypeID = eventyTypeID;
-    }
-
-    public String getEventTypeName() {
-        return eventTypeName;
-    }
-
-    public void setEventTypeName(String eventTypeName) {
-        this.eventTypeName = eventTypeName;
-    }
 }

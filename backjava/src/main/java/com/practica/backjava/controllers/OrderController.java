@@ -1,19 +1,15 @@
 package com.practica.backjava.controllers;
 
 import com.practica.backjava.dtos.OrderDTO;
-import com.practica.backjava.entities.Customer;
 import com.practica.backjava.entities.Order;
 import com.practica.backjava.entities.TicketCategory;
 import com.practica.backjava.mappers.OrderStructMapperImpl;
 import com.practica.backjava.services.OrderServiceImpl;
-import com.practica.backjava.services.TicketCategoryService;
 import com.practica.backjava.services.TicketCategoryServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 

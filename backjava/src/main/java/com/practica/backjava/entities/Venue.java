@@ -1,11 +1,13 @@
 package com.practica.backjava.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-import java.util.List;
-
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 @Entity
 @Table(name = "Venue")
 public class Venue {
@@ -23,56 +25,4 @@ public class Venue {
 
     @Column(name = "Capacity")
     private int venueCapacity;
-
-    public Venue() {
-    }
-
-    public Venue(Integer venueID, String venueLocation, String venueType, int venueCapacity) {
-        this.venueID = venueID;
-        this.venueLocation = venueLocation;
-        this.venueType = venueType;
-        this.venueCapacity = venueCapacity;
-    }
-
-    public int getVenueID() {
-        return venueID;
-    }
-
-    public void setVenueID(int venueID) {
-        this.venueID = venueID;
-    }
-
-    public String getVenueLocation() {
-        return venueLocation;
-    }
-
-    public void setVenueLocation(String venueLocation) {
-        this.venueLocation = venueLocation;
-    }
-
-    public String getVenueType() {
-        return venueType;
-    }
-
-    public void setVenueType(String venueType) {
-        this.venueType = venueType;
-    }
-
-    public int getVenueCapacity() {
-        return venueCapacity;
-    }
-
-    public void setVenueCapacity(int venueCapacity) {
-        this.venueCapacity = venueCapacity;
-    }
-
-    @Override
-    public String toString() {
-        return "Venue{" +
-                "venueID=" + venueID +
-                ", venueLocation='" + venueLocation + '\'' +
-                ", venueType='" + venueType + '\'' +
-                ", venueCapacity=" + venueCapacity +
-                '}';
-    }
 }

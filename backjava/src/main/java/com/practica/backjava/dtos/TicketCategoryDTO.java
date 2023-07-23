@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 
+@Getter
+@Setter
 public class TicketCategoryDTO {
     private BigDecimal ticketPrice;
     private String ticketDescription;
@@ -17,37 +19,5 @@ public class TicketCategoryDTO {
         this.ticketDescription = ticketCategory.getTicketDescription();
         this.ticketCategoryID = ticketCategory.getTicketCategoryID();
         this.eventID = ticketCategory.getEvent().getEventID();
-    }
-
-    public BigDecimal getTicketPrice() {
-        return ticketPrice;
-    }
-
-    public void setTicketPrice(BigDecimal ticketPrice) {
-        this.ticketPrice = ticketPrice;
-    }
-
-    public String getTicketDescription() {
-        return ticketDescription;
-    }
-
-    public void setTicketDescription(String ticketDescription) {
-        this.ticketDescription = ticketDescription;
-    }
-
-    public int getTicketCategoryID() {
-        return ticketCategoryID;
-    }
-
-    public void setTicketCategoryID(int ticketCategoryID) {
-        this.ticketCategoryID = ticketCategoryID;
-    }
-
-    public Integer getEventID() {
-        return eventID;
-    }
-
-    public void setEventID(Integer eventID) {
-        this.eventID = eventID;
     }
 }
