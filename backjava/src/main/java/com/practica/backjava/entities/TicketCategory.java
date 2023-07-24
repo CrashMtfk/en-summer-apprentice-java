@@ -1,13 +1,18 @@
 package com.practica.backjava.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.math.BigDecimal;
-import java.util.List;
-import java.util.Set;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 @Entity
 @Table(name = "TicketCategory")
 public class TicketCategory {
@@ -26,49 +31,4 @@ public class TicketCategory {
     @JoinColumn(name = "EventID")
     @JsonBackReference
     private Event event;
-
-    public TicketCategory() {
-    }
-
-    public int getTicketCategoryID() {
-        return ticketCategoryID;
-    }
-
-    public void setTicketCategoryID(int ticketCategoryID) {
-        this.ticketCategoryID = ticketCategoryID;
-    }
-
-    public String getTicketDescription() {
-        return ticketDescription;
-    }
-
-    public void setTicketDescription(String ticketDescription) {
-        this.ticketDescription = ticketDescription;
-    }
-
-    public BigDecimal getTicketPrice() {
-        return ticketPrice;
-    }
-
-    public void setTicketPrice(BigDecimal ticketPrice) {
-        this.ticketPrice = ticketPrice;
-    }
-
-    public Event getEvent() {
-        return event;
-    }
-
-    public void setEvent(Event event) {
-        this.event = event;
-    }
-
-    @Override
-    public String toString() {
-        return "TicketCategory{" +
-                "ticketCategoryID=" + ticketCategoryID +
-                ", ticketDescription='" + ticketDescription + '\'' +
-                ", ticketPrice=" + ticketPrice +
-                ", event=" + event +
-                '}';
-    }
 }

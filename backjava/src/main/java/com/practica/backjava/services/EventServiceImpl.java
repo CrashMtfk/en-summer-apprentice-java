@@ -1,11 +1,13 @@
 package com.practica.backjava.services;
 
+import com.practica.backjava.dtos.EventDTO;
 import com.practica.backjava.entities.Event;
+import com.practica.backjava.mappers.EventStructMapper;
 import com.practica.backjava.repositories.EventRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class EventServiceImpl implements EventService{
@@ -16,18 +18,9 @@ public class EventServiceImpl implements EventService{
     }
 
     @Override
-    public List<Event> getEvents() {
-        return (List<Event>) eventRepository.findAll();
-    }
-
-    @Override
-    public Optional<Event> getEventById(int id) {
-        return eventRepository.findById(id);
-    }
-
-    @Override
-    public List<Event> getEventByValueIdAndEventType(Integer venueID, String eventType) {
-        return eventRepository.findEventsByVenueVenueIDAndEventTypeEventTypeName(venueID, eventType);
+    public List<EventDTO> getEventByVenueIdAndEventType(Integer venueID, String eventType) {
+        List<Event> events = eventRepository.findEventsByVenueVenueIDAndEventTypeEventTypeName(venueID, eventType);
+        return events.stream().map(EventStructMapper::eventToEventDto).collect(Collectors.toList());
     }
 
 

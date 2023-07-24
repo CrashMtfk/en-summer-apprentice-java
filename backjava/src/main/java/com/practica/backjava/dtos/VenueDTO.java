@@ -1,5 +1,6 @@
 package com.practica.backjava.dtos;
 
+import com.practica.backjava.entities.Venue;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,10 +12,10 @@ public class VenueDTO {
     private String venueType;
     private int venueCapacity;
 
-    public VenueDTO(Integer venueID, String venueLocation, String venueType, int venueCapacity) {
-        this.venueID = venueID;
-        this.venueLocation = venueLocation;
-        this.venueType = venueType;
-        this.venueCapacity = venueCapacity;
+    public VenueDTO(Venue venue) {
+        this.venueID = venue.getVenueID();
+        this.venueLocation = venue.getVenueLocation();
+        this.venueType = venue.getVenueType();
+        this.venueCapacity = venue.getVenueCapacity();
     }
 }

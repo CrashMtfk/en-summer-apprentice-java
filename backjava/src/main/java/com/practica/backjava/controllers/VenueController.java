@@ -15,7 +15,7 @@ public class VenueController {
         this.venueService = venueService;
     }
 
-    @GetMapping("/api/venues")
+    @GetMapping("/venues")
     public List<Venue> getAllVenues(){
         return venueService.getVenues();
     }

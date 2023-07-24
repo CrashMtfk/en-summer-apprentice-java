@@ -1,8 +1,9 @@
 package com.practica.backjava.services;
-import com.practica.backjava.entities.Order;
+import com.practica.backjava.dtos.OrderDTO;
 
 import java.util.List;
 
 public interface OrderService {
-    public List<Order> getOrders();
+    List<OrderDTO> getCustomerOrderById(Integer id);
+    OrderDTO saveNewOrder(OrderDTO orderToSave, Integer customerID);
 }

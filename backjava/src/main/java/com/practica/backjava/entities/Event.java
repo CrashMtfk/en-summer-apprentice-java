@@ -1,12 +1,17 @@
 package com.practica.backjava.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import lombok.*;
+
 import java.time.LocalDateTime;
 import java.util.Set;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 @Entity
 @Table(name = "Event")
 public class Event {
@@ -38,85 +43,5 @@ public class Event {
     @ManyToOne
     @JoinColumn(name = "EventTypeID")
     private EventType eventType;
-
-    public Event() {
-    }
-
-    @Override
-    public String toString() {
-        return "Event{" +
-                "eventID=" + eventID +
-                ", ticketCategorySet=" + ticketCategorySet +
-                ", eventDescription='" + eventDescription + '\'' +
-                ", eventName='" + eventName + '\'' +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
-                ", venue=" + venue +
-                '}';
-    }
-
-    public int getEventID() {
-        return eventID;
-    }
-
-    public Venue getVenue() {
-        return venue;
-    }
-
-    public void setVenue(Venue venue) {
-        this.venue = venue;
-    }
-
-    public EventType getEventType() {
-        return eventType;
-    }
-
-    public void setEventType(EventType eventType) {
-        this.eventType = eventType;
-    }
-
-    public void setEventID(int eventID) {
-        this.eventID = eventID;
-    }
-
-    public Set<TicketCategory> getTicketCategorySet() {
-        return ticketCategorySet;
-    }
-
-    public void setTicketCategorySet(Set<TicketCategory> ticketCategorySet) {
-        this.ticketCategorySet = ticketCategorySet;
-    }
-
-    public String getEventDescription() {
-        return eventDescription;
-    }
-
-    public void setEventDescription(String eventDescription) {
-        this.eventDescription = eventDescription;
-    }
-
-    public String getEventName() {
-        return eventName;
-    }
-
-    public void setEventName(String eventName) {
-        this.eventName = eventName;
-    }
-
-    public LocalDateTime getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(LocalDateTime startDate) {
-        this.startDate = startDate;
-    }
-
-    public LocalDateTime getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(LocalDateTime endDate) {
-        this.endDate = endDate;
-    }
 
 }

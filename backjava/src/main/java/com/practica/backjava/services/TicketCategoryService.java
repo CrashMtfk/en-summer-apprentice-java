@@ -6,5 +6,5 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public interface TicketCategoryService {
-    public List<TicketCategory> getAllTicketCategory();
+    List<TicketCategory> getAllTicketCategory();
 }
