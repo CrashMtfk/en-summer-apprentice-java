@@ -27,20 +27,8 @@ public class OrderController {
 
     @PostMapping("/order/{customerID}")
     public OrderDTO createNewOrder(@RequestBody OrderDTO orderRequest, @PathVariable Integer customerID){
-        TicketCategory ticketCategory = ticketCategoryService.getTicketById(orderRequest.getOrderTicketCategoryID());
-        BigDecimal numberOfTicketsRequested = BigDecimal.valueOf(orderRequest.getNumberOfTickets());
-        BigDecimal totalPrice = ticketCategory.getTicketPrice().multiply(numberOfTicketsRequested);
-        LocalDateTime orderedAt = LocalDateTime.now();
 
-        OrderDTO orderToSave = new OrderDTO();
-        orderToSave.setEventID(orderRequest.getEventID());
-        orderToSave.setOrderTicketCategoryID(orderRequest.getOrderTicketCategoryID());
-        orderToSave.setOrderedAt(orderedAt);
-        orderToSave.setTotalPrice(totalPrice);
-        orderToSave.setNumberOfTickets(orderRequest.getNumberOfTickets());
-        orderService.saveNewOrder(orderToSave, customerID);
-
-        return orderToSave;
+        return orderService.saveNewOrder(orderRequest, customerID);
     }
 
 }

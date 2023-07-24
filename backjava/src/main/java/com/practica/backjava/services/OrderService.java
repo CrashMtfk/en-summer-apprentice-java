@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface OrderService {
     List<OrderDTO> getCustomerOrderById(Integer id);
-    void saveNewOrder(OrderDTO orderToSave, Integer customerID);
+    OrderDTO saveNewOrder(OrderDTO orderToSave, Integer customerID);
 }

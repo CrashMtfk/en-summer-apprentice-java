@@ -4,7 +4,7 @@ import com.practica.backjava.dtos.EventDTO;
 import com.practica.backjava.dtos.VenueDTO;
 import com.practica.backjava.entities.Event;
 
-public class EventStructMapperImpl{
+public class EventStructMapper {
     public static EventDTO eventToEventDto(Event event) {
         if(event == null){
             return null;
