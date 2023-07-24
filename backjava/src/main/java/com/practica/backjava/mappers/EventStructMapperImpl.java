@@ -3,8 +3,6 @@ package com.practica.backjava.mappers;
 import com.practica.backjava.dtos.EventDTO;
 import com.practica.backjava.dtos.VenueDTO;
 import com.practica.backjava.entities.Event;
-import com.practica.backjava.entities.Venue;
-import org.springframework.stereotype.Component;
 
 public class EventStructMapperImpl{
     public static EventDTO eventToEventDto(Event event) {

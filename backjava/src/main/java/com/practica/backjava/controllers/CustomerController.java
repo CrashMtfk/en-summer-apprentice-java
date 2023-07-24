@@ -15,7 +15,7 @@ public class CustomerController {
         this.customerServiceImpl = customerServiceImpl;
     }
 
-    @GetMapping("/api/customers")
+    @GetMapping("/customers")
     public List<Customer> getCustomers(){
         return customerServiceImpl.getCustomers();
     }

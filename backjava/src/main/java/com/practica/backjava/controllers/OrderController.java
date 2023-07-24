@@ -1,9 +1,7 @@
 package com.practica.backjava.controllers;
 
 import com.practica.backjava.dtos.OrderDTO;
-import com.practica.backjava.entities.Order;
 import com.practica.backjava.entities.TicketCategory;
-import com.practica.backjava.mappers.OrderStructMapperImpl;
 import com.practica.backjava.services.OrderServiceImpl;
 import com.practica.backjava.services.TicketCategoryServiceImpl;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 public class OrderController {
@@ -23,18 +20,12 @@ public class OrderController {
         this.ticketCategoryService = ticketCategoryService;
     }
 
-    @GetMapping("/api/orders")
-    public List<Order> getOrders(){
-        return orderService.getOrders();
-    }
-
-    @GetMapping("/order/customer/{customerID}")
+    @GetMapping("/orders/{customerID}")
     public List<OrderDTO> getCustomerOrderById(@PathVariable Integer customerID){
-        List<Order> orderList = orderService.getCustomerOrderById(customerID);
-        return orderList.stream().map(OrderStructMapperImpl::orderToOrderDto).collect(Collectors.toList());
+        return orderService.getCustomerOrderById(customerID);
     }
 
-    @PostMapping("/order/buy/{customerID}")
+    @PostMapping("/order/{customerID}")
     public OrderDTO createNewOrder(@RequestBody OrderDTO orderRequest, @PathVariable Integer customerID){
         TicketCategory ticketCategory = ticketCategoryService.getTicketById(orderRequest.getOrderTicketCategoryID());
         BigDecimal numberOfTicketsRequested = BigDecimal.valueOf(orderRequest.getNumberOfTickets());

@@ -15,7 +15,7 @@ public class TicketCategoryController {
         this.ticketCategoryService = ticketCategoryService;
     }
 
-    @GetMapping("/api/all_ticket_category")
+    @GetMapping("/all_ticket_category")
     public List<TicketCategory> getAllTicketCategory(){
         return ticketCategoryService.getAllTicketCategory();
     }

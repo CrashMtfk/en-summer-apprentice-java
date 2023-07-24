@@ -1,12 +1,10 @@
 package com.practica.backjava.services;
 
-import com.practica.backjava.entities.Event;
+import com.practica.backjava.dtos.EventDTO;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface EventService {
-    public List<Event> getEvents();
-    public Optional<Event> getEventById(int id);
-    public List<Event> getEventByValueIdAndEventType(Integer venueID, String eventType);
+
+    List<EventDTO> getEventByVenueIdAndEventType(Integer venueID, String eventType);
 }

@@ -16,7 +16,7 @@ public class TicketCategoryServiceImpl implements TicketCategoryService{
 
     @Override
     public List<TicketCategory> getAllTicketCategory() {
-        return (List<TicketCategory>) ticketCategoryRepository.findAll();
+        return ticketCategoryRepository.findAll();
     }
 
     public TicketCategory getTicketById(Integer ticketCategoryID){
